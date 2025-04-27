@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toko Roti Lezat</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      scroll-behavior: smooth; 
+    }
+
+    .bg-bread { 
+      background: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-western-style-dessert-bread-geometric-brown-banner-image_178150.jpg') center/cover no-repeat; 
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-smooth-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+
+    .hover-effect:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .modal-show {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      z-index: 10;
+    }
+
+    /* Improved color scheme */
+    .btn-primary {
+      background-color: #692f05;
+      color: white;
+      border-radius: 9999px;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #692f05;
+    }
+    .btn-primary:hover {
+  background-color: #692f05; /* Coklat tua pada hover */
+}
+
+
+    .section-title {
+      color: #4B5563;
+    }
+
+    .card {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .card h3 {
+      color: #1F2937;
+    }
+
+    .card p {
+      color: #6B7280;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden bg-gray-50">
+
+  <!-- Header & Hero Section -->
+  <div class="bg-bread">
+    <header class="py-6">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <a href="#home" class="flex items-center space-x-2 text-white group">
+          <img src="https://via.placeholder.com/32/FFFFFF/000000?text=🍞" alt="Logo" class="h-10 w-10 transform transition group-hover:rotate-12" />
+          <span class="text-3xl font-bold group-hover:scale-110 transition">Toko Roti Lezat</span>
+        </a>
+        <nav>
+          <ul class="flex space-x-6 text-white font-medium">
+            <li><a href="#home" class="hover:text-orange-300 transition">Beranda</a></li>
+            <li><a href="#menu" class="hover:text-orange-300 transition">Katalog Roti</a></li>
+            <li><a href="#order" class="hover:text-orange-300 transition">Pesan</a></li>
+            <li><a href="#maps" class="hover:text-orange-300 transition">Lokasi</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="flex flex-col items-center justify-center text-center text-white py-40 px-4">
+      <h1 class="text-5xl font-extrabold mb-6" data-aos="fade-down">Manjakan Lidah Anda dengan Roti Segar!</h1>
+      <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="300">Dari oven kami langsung ke meja Anda. Hangat & Lezat!</p>
+      <a href="#order" class="btn-primary" data-aos="zoom-in" data-aos-delay="600">Pesan Sekarang</a>
+    </section>
+  </div>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Pilihan Roti Kami</h2>
+      <div class="relative overflow-hidden">
+        <div class="animate-smooth-marquee gap-12 px-4 pb-4">
+          <!-- Menu Items -->
+          <div onclick="openModal('Roti Cinnamon Swirl', 'Roti manis dengan aroma kayu manis.', 'Rp 15.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer" data-aos="fade-right">
+            <img src="https://img.freepik.com/premium-photo/fresh-bread-wooden-table-close-up_392895-338497.jpg" alt="Roti Cinnamon" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Cinnamon Swirl</h3>
+          </div>
+
+          <div onclick="openModal('Roti Gandum Sehat', 'Roti berbahan gandum utuh, sehat dan bergizi.', 'Rp 12.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer" data-aos="fade-up">
+            <img src="https://kampungkaleng.com/wp-content/uploads/2022/06/roti-tawar-article-1593514225.jpg" alt="Roti Gandum" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Gandum Sehat</h3>
+          </div>
+
+          <div onclick="openModal('Roti Cokelat Premium', 'Roti isi cokelat meleleh, cocok untuk cemilan.', 'Rp 18.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer" data-aos="fade-left">
+            <img src="https://img-global.cpcdn.com/recipes/02ba1b3627f08cac/680x482cq70/roti-isi-coklat-foto-resep-utama.jpg" alt="Roti Coklat" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Cokelat Premium</h3>
+          </div>
+          
+          <!-- Duplicate Menu Items to Continue Animation -->
+          <div onclick="openModal('Roti Cinnamon Swirl', 'Roti manis dengan aroma kayu manis.', 'Rp 15.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer">
+            <img src="https://img.freepik.com/premium-photo/fresh-bread-wooden-table-close-up_392895-338497.jpg" alt="Roti Cinnamon" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Cinnamon Swirl</h3>
+          </div>
+
+          <div onclick="openModal('Roti Gandum Sehat', 'Roti berbahan gandum utuh, sehat dan bergizi.', 'Rp 12.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer">
+            <img src="https://kampungkaleng.com/wp-content/uploads/2022/06/roti-tawar-article-1593514225.jpg" alt="Roti Gandum" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Gandum Sehat</h3>
+          </div>
+
+          <div onclick="openModal('Roti Cokelat Premium', 'Roti isi cokelat meleleh, cocok untuk cemilan.', 'Rp 18.000')" class="snap-center flex-shrink-0 w-72 card hover-effect cursor-pointer">
+            <img src="https://img-global.cpcdn.com/recipes/02ba1b3627f08cac/680x482cq70/roti-isi-coklat-foto-resep-utama.jpg" alt="Roti Coklat" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold text-center">Roti Cokelat Premium</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni Section -->
+  <section id="testimoni" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Apa Kata Pelanggan</h2>
+      <div class="flex space-x-6 justify-center">
+        <div class="w-1/3 bg-white rounded-xl shadow-lg p-6 text-center">
+          <p class="text-lg font-medium text-gray-600 mb-4">"Roti yang saya pesan sangat enak! Cokelatnya meleleh sempurna di mulut."</p>
+          <span class="text-xl font-semibold text-gray-800">Andi, Jakarta</span>
+        </div>
+        <div class="w-1/3 bg-white rounded-xl shadow-lg p-6 text-center">
+          <p class="text-lg font-medium text-gray-600 mb-4">"Pengiriman cepat dan roti selalu segar, saya jadi sering pesan di sini!"</p>
+          <span class="text-xl font-semibold text-gray-800">Maya, Bandung</span>
+        </div>
+        <div class="w-1/3 bg-white rounded-xl shadow-lg p-6 text-center">
+          <p class="text-lg font-medium text-gray-600 mb-4">"Roti Cinnamon-nya luar biasa! Wajib coba!"</p>
+          <span class="text-xl font-semibold text-gray-800">Rico, Surabaya</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Section -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div id="modalContent" class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full relative opacity-0">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">✖</button>
+      <h3 id="modalTitle" class="text-2xl font-bold mb-4 text-center"></h3>
+      <p id="modalDescription" class="text-gray-600 mb-4 text-center"></p>
+      <p id="modalPrice" class="text-lg font-semibold text-orange-600 text-center"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    
+    function openModal(title, description, price) {
+      document.getElementById("modal").classList.remove("hidden");
+      document.getElementById("modalContent").classList.add("modal-show");
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalDescription").textContent = description;
+      document.getElementById("modalPrice").textContent = price;
+    }
+    
+    function closeModal() {
+      document.getElementById("modal").classList.add("hidden");
+    }
+  </script>
+ <!-- Promo Section -->
+<section id="promo" class="py-20" style="background-color: #ff8e04;">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title text-4xl font-bold text-center text-white mb-12" style="color: white !important;" data-aos="fade-up">Dapatkan Promo Menarik!</h2>
+
+    
+      <!-- Promo Section -->
+      <section id="promo" class="relative bg-[#D2691E] py-16 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-10">
+          <!-- Teks Promo -->
+          <div class="md:w-1/2 text-center md:text-left">
+            <p class="text-lg text-white mb-6 fade-in delay-1">
+              Kami sedang menawarkan promo spesial untuk pembelian roti!  
+              Isi form di bawah ini dan dapatkan diskon 20% untuk pembelian pertama Anda.
+            </p>
+          </div>
+          <!-- Form Card -->
+          <div class="md:w-1/2 bg-white rounded-2xl shadow-lg p-8 fade-in delay-2">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Dapatkan Promo</h3>
+            <form class="space-y-4">
+              <input type="text" placeholder="Nama Lengkap" 
+                     class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" required>
+              <input type="email" placeholder="Email" 
+                     class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" required>
+              <input type="tel" placeholder="Nomor Telepon" 
+                     class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" required>
+              <button type="submit" 
+                      class="w-full bg-orange-600 text-white py-3 rounded-full font-semibold hover:bg-orange-700 transition transform hover:scale-105 mt-4 btn-primary">
+                Dapatkan Promo
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  
+  
+  <script>
+    // Handle form submission
+    const promoForm = document.getElementById('promoForm');
+    const successMessage = document.getElementById('successMessage');
+  
+    promoForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+  
+      // Simple form validation (for demo)
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+  
+      if (name && email && phone) {
+        // Simulate sending form and show success message
+        promoForm.reset(); // Reset form
+        successMessage.classList.remove('hidden');
+        setTimeout(function () {
+          successMessage.classList.add('hidden');
+        }, 5000);
+      }
+    });
+  </script>
+<!-- Form Pemesanan Section -->
+<section id="order" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Pemesanan Roti</h2>
+      
+      <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <form action="#" method="POST">
+          <div class="space-y-4">
+            <div class="flex flex-col">
+              <label for="name" class="text-gray-700 font-medium">Nama Lengkap</label>
+              <input type="text" id="name" name="name" class="p-3 border border-gray-300 rounded-md transition-transform duration-300 hover:scale-105" placeholder="Masukkan nama lengkap" required>
+            </div>
+            
+            <div class="flex flex-col">
+              <label for="email" class="text-gray-700 font-medium">Email</label>
+              <input type="email" id="email" name="email" class="p-3 border border-gray-300 rounded-md transition-transform duration-300 hover:scale-105" placeholder="Masukkan email" required>
+            </div>
+            
+            <div class="flex flex-col">
+              <label for="address" class="text-gray-700 font-medium">Alamat Pengiriman</label>
+              <textarea id="address" name="address" class="p-3 border border-gray-300 rounded-md transition-transform duration-300 hover:scale-105" placeholder="Masukkan alamat pengiriman" required></textarea>
+            </div>
+  
+            <div class="flex flex-col">
+              <label for="order" class="text-gray-700 font-medium">Jenis Roti yang Dipesan</label>
+              <select id="order" name="order" class="p-3 border border-gray-300 rounded-md transition-transform duration-300 hover:scale-105" required>
+                <option value="cinnamon">Roti Cinnamon Swirl</option>
+                <option value="gandum">Roti Gandum Sehat</option>
+                <option value="coklat">Roti Cokelat Premium</option>
+              </select>
+            </div>
+  
+            <div class="flex flex-col">
+              <label for="quantity" class="text-gray-700 font-medium">Jumlah Pesanan</label>
+              <input type="number" id="quantity" name="quantity" class="p-3 border border-gray-300 rounded-md transition-transform duration-300 hover:scale-105" placeholder="Masukkan jumlah pesanan" min="1" required>
+            </div>
+  
+            <div class="text-center">
+              <button type="submit" class="btn-primary mt-4 transition-all duration-300 hover:bg-orange-600">Pesan Sekarang</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+<!-- Google Maps Section -->
+<section id="maps" class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Lokasi Toko Kami</h2>
+      
+      <div class="relative w-full h-96" data-aos="fade-up" data-aos-delay="400">
+        <!-- Ganti link iframe dengan lokasi di Indonesia (Taman Mini Indonesia Indah, Jakarta) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.3721409877105!2d106.88123526749802!3d-6.303058984272923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a16f28a3c11e3%3A0x73c40759969a2b71!2sTaman%20Mini%20Indonesia%20Indah!5e0!3m2!1sen!2sid!4v1629468281866!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+  <footer id="promo" class="py-8 bg-gray-800">
+    <div class="container mx-auto px-4 text-center text-white">
+        <p class="text-lg mb-2">Toko Roti Sehat</p>
+        <p class="text-sm mb-2">Menyediakan roti fresh setiap hari</p>
+        <p class="text-sm mb-4">Alamat: Jl. Roti No. 123, Jakarta | Telepon: (021) 123-4567</p>
+
+        <div>
+            <p class="text-xs">&copy; 2025 Toko Roti Sehat. Semua hak cipta dilindungi.</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
